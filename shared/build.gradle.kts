@@ -8,11 +8,10 @@ plugins {
     alias(libs.plugins.vanniktech.mavenPublish)
 }
 
-group = "io.github.kotlin.marceloluiz12"
+group = "io.github.marceloluiz12"
 version = "1.0.0"
 
 kotlin {
-    jvm()
     androidTarget {
         publishLibraryVariants("release")
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
@@ -23,7 +22,6 @@ kotlin {
     iosX64()
     iosArm64()
     iosSimulatorArm64()
-    linuxX64()
 
     sourceSets {
         val commonMain by getting {
@@ -60,7 +58,7 @@ kotlin {
 }
 
 android {
-    namespace = "io.github.kotlin.marceloluiz12"
+    namespace = "io.github.marceloluiz12"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
