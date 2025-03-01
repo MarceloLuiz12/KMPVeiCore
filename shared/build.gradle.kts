@@ -28,12 +28,32 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                //put your multiplatform dependencies here
+                implementation(libs.koin.core)
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.logging)
+                implementation(libs.kotlinx.serialization.json)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(libs.ktor.serialization.kotlinx.json)
+                implementation(libs.ktorSerialization)
+                implementation(libs.datastore.preferences)
+                implementation(libs.datastore)
+
             }
         }
-        val commonTest by getting {
+        val androidMain by getting {
             dependencies {
-                implementation(libs.kotlin.test)
+                implementation(libs.ktor.client.cio)
+                implementation(libs.koin.android)
+                implementation(libs.ktor.client.okhttp)
+                implementation(libs.ktor.client.android)
+                implementation(libs.ktor.utils.jvm)
+                implementation(libs.ktor.client.logging.jvm)
+                implementation(libs.ktor.client.plugins)
+            }
+        }
+        val iosMain by creating {
+            dependencies {
+                implementation(libs.ktor.client.darwin)
             }
         }
     }
